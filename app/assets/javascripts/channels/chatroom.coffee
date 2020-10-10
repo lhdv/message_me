@@ -7,4 +7,7 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
-    alert data.foo
+    # alert data.foo
+    $('#message-container').append data.msg
+    $('#message_body').val = ""
+    scroll_bottom()
