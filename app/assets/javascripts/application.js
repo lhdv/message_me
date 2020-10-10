@@ -23,6 +23,15 @@ scroll_bottom = function() {
   }
 }
 
+submit_msg = function() {
+  $('#message_body').on('keydown', function(e){
+    if (e.keyCode == 13) {
+      $('button').click();
+      e.target.value = "";
+    }
+  });
+}
+
 $(document).on('turbolinks:load', function () {
   $('.ui.dropdown').dropdown();
 
@@ -30,5 +39,6 @@ $(document).on('turbolinks:load', function () {
     $(this).closest('.message').transition('fade');
   });
 
+  submit_msg();
   scroll_bottom();
 })
